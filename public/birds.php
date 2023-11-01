@@ -1,12 +1,12 @@
 <?php 
   require_once('../private/initialize.php');
-  $page_title = 'Sightings';
+  $page_title = 'Bird List';
   include(SHARED_PATH . '/public_header.php');
 ?>
 
 <h2>Bird inventory</h2>
 <p>This is a short list -- start your birding!</p>
-
+<p><a href="new.php">Add a Bird</a></p>
 
     <table border="1">
       <tr>
@@ -33,9 +33,8 @@ $birds = Bird::find_all();
         <td><?php echo h($bird->conservation()); ?></td>
         <td><?php echo h($bird->backyard_tips); ?></td>
         <td><a href="detail.php?id=<?php echo $bird->id; ?>">View</a></td>
-        <td><a class="action" href="<?php echo url_for('/show.php?id=' . h(u($bird->id))); ?>">View</a></td>
-        <td><a class="action" href="<?php echo url_for('/edit.php?id=' . h(u($bird->id))); ?>">Edit</a></td>
-        <td><a class="action" href="<?php echo url_for('/delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
+        <td><a href="edit.php?id=<?php echo $bird->id; ?>">Edit</a></td>
+        <td><a href="<?php echo url_for('delete.php?id=' . h(u($bird->id))); ?>">Delete</a></td>
 
       </tr>
       <?php } ?>

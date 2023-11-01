@@ -1,52 +1,43 @@
 <?php
 
-require_once('../../../private/initialize.php');
+require_once('../private/initialize.php');
 
 if(is_post_request()) {
 
   // Create record using post parameters
-  $args = $_POST['bicycle'];
-  $bicycle = new Bicycle($args);
-  $result = $bicycle->save();
+  $args = $_POST['bird'];
+  $bird = new Bird($args);
+  $result = $bird->save();
 
   if($result === true) {
-    $new_id = $bicycle->id;
-    $_SESSION['message'] = 'The bicycle was created successfully.';
-    redirect_to(url_for('/staff/bicycles/show.php?id=' . $new_id));
+    $new_id = $bird->id;
+    $_SESSION['message'] = 'The bird was created successfully.';
+    redirect_to(url_for('show.php?id=' . $new_id));
   } else {
     // show errors
   }
 
 } else {
   // display the form
-  $bicycle = new Bicycle;
+  $bird = new Bird;
 }
 
 ?>
 
-<?php $page_title = 'Create Bicycle'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php $page_title = 'Create Bird'; ?>
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 
-<div id="content">
+  <a href="<?php echo url_for('/index.php'); ?>">&laquo; Back to List</a>
 
-  <a class="back-link" href="<?php echo url_for('/staff/bicycles/index.php'); ?>">&laquo; Back to List</a>
+    <h1>Create Bird</h1>
 
-  <div class="bicycle new">
-    <h1>Create Bicycle</h1>
+    <?php echo display_errors($bird->errors); ?>
 
-    <?php echo display_errors($bicycle->errors); ?>
-
-    <form action="<?php echo url_for('/staff/bicycles/new.php'); ?>" method="post">
+    <form action="<?php echo url_for('/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 
-      <div id="operations">
-        <input type="submit" value="Create Bicycle" />
-      </div>
+        <input type="submit" value="Create Bird" />
     </form>
 
-  </div>
-
-</div>
-
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include(SHARED_PATH . '/public_footer.php'); ?>

@@ -7,69 +7,44 @@
   $id = $_GET['id'] ?? false;
 
   if(!$id) {
-    redirect_to('bicycles.php');
+    redirect_to('birds.php');
   }
 
-  // Find bicycle using ID
+  // Find bird using ID
 
-  $bike = Bicycle::find_by_id($id);
+  $bird = Bird::find_by_id($id);
+  
 
 ?>
 
-<?php $page_title = 'Detail: ' . $bike->name(); ?>
+<?php $page_title = 'Detail: ' . $bird->common_name; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
-<div id="main">
+  <a href="birds.php">Back to Inventory</a>
 
-  <a href="bicycles.php">Back to Inventory</a>
-
-  <div id="page">
-
-    <div class="detail">
       <dl>
-        <dt>Brand</dt>
-        <dd><?php echo h($bike->brand); ?></dd>
+        <dt>ID</dt>
+        <dd><?php echo h($bird->id); ?></dd>
       </dl>
       <dl>
-        <dt>Model</dt>
-        <dd><?php echo h($bike->model); ?></dd>
+        <dt>Name</dt>
+        <dd><?php echo h($bird->common_name); ?></dd>
       </dl>
       <dl>
-        <dt>Year</dt>
-        <dd><?php echo h($bike->year); ?></dd>
+        <dt>Habittat</dt>
+        <dd><?php echo h($bird->habitat); ?></dd>
       </dl>
       <dl>
-        <dt>Category</dt>
-        <dd><?php echo h($bike->category); ?></dd>
+        <dt>Food</dt>
+        <dd><?php echo h($bird->food); ?></dd>
       </dl>
       <dl>
-        <dt>Gender</dt>
-        <dd><?php echo h($bike->gender); ?></dd>
+        <dt>Conservation Level</dt>
+        <dd><?php echo h($bird->conservation()); ?></dd>
       </dl>
       <dl>
-        <dt>Color</dt>
-        <dd><?php echo h($bike->color); ?></dd>
+        <dt>Backyard Tips</dt>
+        <dd><?php echo h($bird->backyard_tips); ?></dd>
       </dl>
-      <dl>
-        <dt>Weight</dt>
-        <dd><?php echo h($bike->weight_kg()) . ' / ' . h($bike->weight_lbs()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Condition</dt>
-        <dd><?php echo h($bike->condition()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Price</dt>
-        <dd><?php echo h(money_format('$%i', $bike->price)); ?></dd>
-      </dl>
-      <dl>
-        <dt>Description</dt>
-        <dd><?php echo h($bike->description); ?></dd>
-      </dl>
-    </div>
-
-  </div>
-
-</div>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
