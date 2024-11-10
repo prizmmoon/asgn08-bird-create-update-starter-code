@@ -8,7 +8,7 @@ $bird = Bird::find_by_id($id);
 
 ?>
 
-<?php $page_title = 'Show Bird: ' . h($bird->name()); ?>
+<?php $page_title = 'Show Bird: ' . h($bird->common_name); ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
@@ -17,51 +17,29 @@ $bird = Bird::find_by_id($id);
 
   <div class="bird show">
 
-    <h1>Bird: <?php echo h($bird->name()); ?></h1>
+    <h1>Bird: <?php echo h($bird->common_name); ?></h1>
 
     <div class="attributes">
       <dl>
-        <dt>Brand</dt>
-        <dd><?php echo h($bird->brand); ?></dd>
+        <dt>Name</dt>
+        <dd><?php echo h($bird->common_name); ?></dd>
       </dl>
       <dl>
-        <dt>Model</dt>
-        <dd><?php echo h($bird->model); ?></dd>
+        <dt>Habitat</dt>
+        <dd><?php echo h($bird->habitat); ?></dd>
       </dl>
       <dl>
-        <dt>Year</dt>
-        <dd><?php echo h($bird->year); ?></dd>
+        <dt>Food</dt>
+        <dd><?php echo h($bird->food); ?></dd>
       </dl>
       <dl>
-        <dt>Category</dt>
-        <dd><?php echo h($bird->category); ?></dd>
+        <dt>Conservation</dt>
+        <dd><?php echo h($bird->conservation); ?></dd>
       </dl>
       <dl>
-        <dt>Color</dt>
-        <dd><?php echo h($bird->color); ?></dd>
-      </dl>
-      <dl>
-        <dt>Gender</dt>
-        <dd><?php echo h($bird->gender); ?></dd>
-      </dl>
-      <dl>
-        <dt>Weight</dt>
-        <dd><?php echo h($bird->weight_kg()) . ' / ' . h($bird->weight_lbs()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Condition</dt>
-        <dd><?php echo h($bird->condition()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Price</dt>
-        <dd><?php echo h(money_format('$%i', $bird->price)); ?></dd>
-      </dl>
-      <dl>
-        <dt>Description</dt>
-        <dd><?php echo h($bird->description); ?></dd>
+        <dt>Backyard Tips</dt>
+        <dd><?php echo h($bird->backyard_tips); ?></dd>
       </dl>
     </div>
-
   </div>
-
 </div>

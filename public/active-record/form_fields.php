@@ -7,80 +7,26 @@ if (!isset($bird)) {
 ?>
 
 <dl>
-  <dt>Brand</dt>
-  <dd><input type="text" name="brand" value="" /></dd>
+  <dt>Name</dt>
+  <dd><input type="text" name="common_name" value=""></dd>
 </dl>
 
 <dl>
-  <dt>Model</dt>
-  <dd><input type="text" name="model" value="" /></dd>
+  <dt>Habitat</dt>
+  <dd><input type="text" name="habitat" value=""></dd>
 </dl>
 
 <dl>
-  <dt>Year</dt>
-  <dd>
-    <select name="year">
-      <option value=""></option>
-      <?php $this_year = idate('Y') ?>
-      <?php for ($year = $this_year - 20; $year <= $this_year; $year++) { ?>
-        <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-      <?php } ?>
-    </select>
-  </dd>
+  <dt>Food</dt>
+  <dd><input type="text" name="food" value=""></dd>
 </dl>
 
 <dl>
-  <dt>Category</dt>
-  <dd>
-    <select name="category">
-      <option value=""></option>
-      <?php foreach (Bird::CATEGORIES as $category) { ?>
-        <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
-      <?php } ?>
-    </select>
-  </dd>
+  <dt>Conservation</dt>
+  <dd><input type="text" name="conservation" value=""></dd>
 </dl>
 
 <dl>
-  <dt>Gender</dt>
-  <dd>
-    <select name="gender">
-      <option value=""></option>
-      <?php foreach (Bird::GENDERS as $gender) { ?>
-        <option value="<?php echo $gender; ?>"><?php echo $gender; ?></option>
-      <?php } ?>
-    </select>
-  </dd>
-</dl>
-
-<dl>
-  <dt>Color</dt>
-  <dd><input type="text" name="color" value="" /></dd>
-</dl>
-
-<dl>
-  <dt>Condition</dt>
-  <dd>
-    <select name="condition_id">
-      <option value=""></option>
-      <?php foreach (Bird::CONDITION_OPTIONS as $cond_id => $cond_name) { ?>
-        <option value="<?php echo $cond_id; ?>"><?php echo $cond_name; ?></option>
-      <?php } ?>
-    </select>
-  </dd>
-</dl>
-
-<dl>
-  <dt>Weight (kg)</dt>
-  <dd><input type="text" name="weight_kg" value="" /></dd>
-</dl>
-
-<dl>
-  <dt>Price</dt>
-  <dd>$ <input type="text" name="price" size="18" value="" /></dd>
-</dl>
-
-<dl>
-  <dt>Description</dt>
-  <dd><textarea name="description" rows="5" cols="50"></textarea></dd>
+  <dt>Backyard Tips</dt>
+  <dd><input type="text" name="backyard_tips" value=""></dd>
 </dl>

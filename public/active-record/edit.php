@@ -11,18 +11,13 @@ if (is_post_request()) {
 
   // Save record using post parameters
   $args = [];
-  $args['brand'] = $_POST['brand'] ?? NULL;
-  $args['model'] = $_POST['model'] ?? NULL;
-  $args['year'] = $_POST['year'] ?? NULL;
-  $args['category'] = $_POST['category'] ?? NULL;
-  $args['color'] = $_POST['color'] ?? NULL;
-  $args['gender'] = $_POST['gender'] ?? NULL;
-  $args['price'] = $_POST['price'] ?? NULL;
-  $args['weight_kg'] = $_POST['weight_kg'] ?? NULL;
-  $args['condition_id'] = $_POST['condition_id'] ?? NULL;
-  $args['description'] = $_POST['description'] ?? NULL;
+  $args['common_name'] = $_POST['common_name'] ?? NULL;
+  $args['habitat'] = $_POST['habitat'] ?? NULL;
+  $args['food'] = $_POST['food'] ?? NULL;
+  $args['conservation'] = $_POST['conservation'] ?? NULL;
+  $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
 
-  $bicycle = [];
+  $bird = [];
 
   $result = false;
   if ($result === true) {
