@@ -1,13 +1,13 @@
 <?php
 
-require_once('../../../private/initialize.php');
+require_once('../../private/initialize.php');
 
-if(!isset($_GET['id'])) {
-  redirect_to(url_for('/staff/bicycles/index.php'));
+if (!isset($_GET['id'])) {
+  redirect_to(url_for('/active-record/index.php'));
 }
 $id = $_GET['id'];
 
-if(is_post_request()) {
+if (is_post_request()) {
 
   // Save record using post parameters
   $args = [];
@@ -25,39 +25,39 @@ if(is_post_request()) {
   $bicycle = [];
 
   $result = false;
-  if($result === true) {
-    $_SESSION['message'] = 'The bicycle was updated successfully.';
-    redirect_to(url_for('/staff/bicycles/show.php?id=' . $id));
+  if ($result === true) {
+    $_SESSION['message'] = 'The bird was updated successfully.';
+    redirect_to(url_for('/staff/bird/show.php?id=' . $id));
   } else {
     // show errors
   }
-
 } else {
 
   // display the form
-  $bicycle = [];
+  $bird = [];
 }
 
 ?>
 
-<?php $page_title = 'Edit Bicycle'; ?>
+<?php $page_title = 'Edit Bird'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/bicycles/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/active-record/index.php'); ?>">&laquo; Back to List</a>
 
-  <div class="bicycle edit">
-    <h1>Edit Bicycle</h1>
+  <div class="bird edit">
+    <h1>Edit Bird</h1>
 
-    <?php // echo display_errors($errors); ?>
+    <?php // echo display_errors($errors); 
+    ?>
 
-    <form action="<?php echo url_for('/staff/bicycles/edit.php?id=' . h(u($id))); ?>" method="post">
+    <form action="<?php echo url_for('/active-record/edit.php?id=' . h(u($id))); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
-      
+
       <div id="operations">
-        <input type="submit" value="Edit Bicycle" />
+        <input type="submit" value="Edit Bird" />
       </div>
     </form>
 

@@ -1,8 +1,8 @@
 <?php
 // prevents this code from being loaded directly in the browser
 // or without first setting the necessary object
-if(!isset($bicycle)) {
-  redirect_to(url_for('/staff/bicycles/index.php'));
+if (!isset($bird)) {
+  redirect_to(url_for('/active-record/index.php'));
 }
 ?>
 
@@ -21,10 +21,10 @@ if(!isset($bicycle)) {
   <dd>
     <select name="year">
       <option value=""></option>
-    <?php $this_year = idate('Y') ?>
-    <?php for($year=$this_year-20; $year <= $this_year; $year++) { ?>
-      <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-    <?php } ?>
+      <?php $this_year = idate('Y') ?>
+      <?php for ($year = $this_year - 20; $year <= $this_year; $year++) { ?>
+        <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+      <?php } ?>
     </select>
   </dd>
 </dl>
@@ -34,9 +34,9 @@ if(!isset($bicycle)) {
   <dd>
     <select name="category">
       <option value=""></option>
-    <?php foreach(Bicycle::CATEGORIES as $category) { ?>
-      <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
-    <?php } ?>
+      <?php foreach (Bird::CATEGORIES as $category) { ?>
+        <option value="<?php echo $category; ?>"><?php echo $category; ?></option>
+      <?php } ?>
     </select>
   </dd>
 </dl>
@@ -46,9 +46,9 @@ if(!isset($bicycle)) {
   <dd>
     <select name="gender">
       <option value=""></option>
-    <?php foreach(Bicycle::GENDERS as $gender) { ?>
-      <option value="<?php echo $gender; ?>"><?php echo $gender; ?></option>
-    <?php } ?>
+      <?php foreach (Bird::GENDERS as $gender) { ?>
+        <option value="<?php echo $gender; ?>"><?php echo $gender; ?></option>
+      <?php } ?>
     </select>
   </dd>
 </dl>
@@ -63,9 +63,9 @@ if(!isset($bicycle)) {
   <dd>
     <select name="condition_id">
       <option value=""></option>
-    <?php foreach(Bicycle::CONDITION_OPTIONS as $cond_id => $cond_name) { ?>
-      <option value="<?php echo $cond_id; ?>"><?php echo $cond_name; ?></option>
-    <?php } ?>
+      <?php foreach (Bird::CONDITION_OPTIONS as $cond_id => $cond_name) { ?>
+        <option value="<?php echo $cond_id; ?>"><?php echo $cond_name; ?></option>
+      <?php } ?>
     </select>
   </dd>
 </dl>
