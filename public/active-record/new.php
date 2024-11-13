@@ -24,7 +24,7 @@ if (is_post_request()) {
   }
 } else {
   // display the form
-  $bird = [];
+  $bird = new Bird;
 }
 
 ?>
