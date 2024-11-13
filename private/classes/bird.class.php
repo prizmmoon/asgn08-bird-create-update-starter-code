@@ -82,6 +82,31 @@ class Bird extends DatabaseObject
     return $result;
   }
 
+  public function update()
+  {
+    $attributes = $this->sanitized_attributes();
+    $attribute_pairs = [];
+    foreach ($attributes as $key => $value) {
+      $attribute_pairs[] = "{$key}='{$value}'";
+    }
+
+    $sql = "UPDATE birds SET ";
+    $sql .= join(', ', $attribute_pairs);
+    $sql .= " WHERE id='" . self::$database->escape_string($this->id) . "' ";
+
+    $result = self::$database->query($sql);
+    return $result;
+  }
+
+  public function merge_attributes($args = [])
+  {
+    foreach ($args as $key => $value) {
+      if (property_exists($this, $key) && !is_null($value)) {
+        $this->$key = $value;
+      }
+    }
+  }
+
   public function attributes()
   {
     $attributes = [];

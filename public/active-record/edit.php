@@ -7,6 +7,11 @@ if (!isset($_GET['id'])) {
 }
 $id = $_GET['id'];
 
+$bird = Bird::find_by_id($id);
+if ($bird == false) {
+  redirect_to(url_for('/active-record/index.php'));
+}
+
 if (is_post_request()) {
 
   // Save record using post parameters
@@ -17,9 +22,9 @@ if (is_post_request()) {
   $args['conservation'] = $_POST['conservation'] ?? NULL;
   $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
 
-  $bird = [];
+  $bird->merge_attributes($args);
+  $result = $bird->update();
 
-  $result = false;
   if ($result === true) {
     $_SESSION['message'] = 'The bird was updated successfully.';
     redirect_to(url_for('/staff/bird/show.php?id=' . $id));
@@ -29,10 +34,7 @@ if (is_post_request()) {
 } else {
 
   // display the form
-  $bird = Bird::find_by_id($id);
-  if ($bicycle == false) {
-    redirect_to(url_for('/active-record/index.php'));
-  }
+
 }
 
 ?>
