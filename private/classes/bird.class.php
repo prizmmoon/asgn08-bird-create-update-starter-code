@@ -65,7 +65,7 @@ class Bird extends DatabaseObject
     return $object;
   }
 
-  public function create()
+  protected function create()
   {
     $attributes = $this->sanitized_attributes();
 
@@ -82,7 +82,7 @@ class Bird extends DatabaseObject
     return $result;
   }
 
-  public function update()
+  protected function update()
   {
     $attributes = $this->sanitized_attributes();
     $attribute_pairs = [];
@@ -96,6 +96,16 @@ class Bird extends DatabaseObject
 
     $result = self::$database->query($sql);
     return $result;
+  }
+
+  public function save()
+  {
+    // A new record will not have an id yet
+    if (isset($this->id)) {
+      return $this->update();
+    } else {
+      return $this->create();
+    }
   }
 
   public function merge_attributes($args = [])

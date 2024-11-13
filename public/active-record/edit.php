@@ -23,7 +23,7 @@ if (is_post_request()) {
   $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
 
   $bird->merge_attributes($args);
-  $result = $bird->update();
+  $result = $bird->save();
 
   if ($result === true) {
     $_SESSION['message'] = 'The bird was updated successfully.';
