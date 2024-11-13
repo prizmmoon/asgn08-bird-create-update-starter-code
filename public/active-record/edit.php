@@ -29,7 +29,10 @@ if (is_post_request()) {
 } else {
 
   // display the form
-  $bird = [];
+  $bird = Bird::find_by_id($id);
+  if ($bicycle == false) {
+    redirect_to(url_for('/active-record/index.php'));
+  }
 }
 
 ?>
