@@ -22,8 +22,8 @@ if (!isset($bird)) {
 </dl>
 
 <dl>
-  <dt>Conservation</dt>
-  <dd><input type="text" name="conservation" value="<?php echo h($bird->conservation); ?>"></dd>
+  <dt>Conservation ID</dt>
+  <dd><input type="text" name="conservation_id" value="<?php echo h($bird->conservation_id); ?>"></dd>
 </dl>
 
 <dl>

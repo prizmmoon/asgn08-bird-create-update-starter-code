@@ -8,9 +8,9 @@ require_once('../private/initialize.php');
   Be sure to include the display_errors() function.
 */
 
-<?php $page_title = 'Edit Bird'; ?>
-<?php include(SHARED_PATH . '/public_header.php'); ?>
+$page_title = 'Edit Bird';
+include(SHARED_PATH . '/public_header.php');
 
 
 
-<?php include(SHARED_PATH . '/public_footer.php'); ?>
+include(SHARED_PATH . '/public_footer.php');

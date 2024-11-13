@@ -36,12 +36,19 @@ class Bird extends DatabaseObject
   static public function find_all()
   {
     $sql = "SELECT * FROM birds";
-    return self::$database->query($sql);
+    $result = self::$database->query($sql);
+
+    $birds = [];
+    while ($row = $result->fetch_object()) {
+      $birds[] = $row;
+    }
+
+    return $birds;
   }
 
   static public function find_by_id($id)
   {
-    $sql = "SELECT * FROM bicycles ";
+    $sql = "SELECT * FROM birds ";
     $sql .= "WHERE id='" . self::$database->escape_string($id) . "'";
     $obj_array = self::find_by_sql($sql);
     if (!empty($obj_array)) {

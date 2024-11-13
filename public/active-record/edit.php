@@ -19,7 +19,7 @@ if (is_post_request()) {
   $args['common_name'] = $_POST['common_name'] ?? NULL;
   $args['habitat'] = $_POST['habitat'] ?? NULL;
   $args['food'] = $_POST['food'] ?? NULL;
-  $args['conservation'] = $_POST['conservation'] ?? NULL;
+  $args['conservation_id'] = $_POST['conservation_id'] ?? NULL;
   $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
 
   $bird->merge_attributes($args);
