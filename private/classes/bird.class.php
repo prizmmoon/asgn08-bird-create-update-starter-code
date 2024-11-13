@@ -67,7 +67,7 @@ class Bird extends DatabaseObject
 
   public function create()
   {
-    $attributes = $this->attributes();
+    $attributes = $this->sanitized_attributes();
 
     $sql = "INSERT INTO birds (";
     $sql .= join(', ', array_keys($attributes));
@@ -94,6 +94,16 @@ class Bird extends DatabaseObject
     }
 
     return $attributes;
+  }
+
+  protected function sanitized_attributes()
+  {
+    $sanitized = [];
+    foreach ($this->attributes() as $key => $value) {
+      $sanitized[$key] = self::$database->escape_string($value);
+    }
+
+    return $sanitized;
   }
 
   // ------------ END OF ACTIVE RECORD CODE ------------  
