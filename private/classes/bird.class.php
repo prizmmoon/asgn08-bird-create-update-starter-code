@@ -18,7 +18,7 @@ class Bird extends DatabaseObject
   {
     $result = self::$database->query($sql);
 
-    if ($result) {
+    if (!$result) {
       exit("Database query failed.");
     }
 
