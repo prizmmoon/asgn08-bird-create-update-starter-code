@@ -9,7 +9,7 @@ $bird = Bird::find_by_id($id);
 ?>
 
 <?php $page_title = 'Show Bird: ' . h($bird->common_name); ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="content">
 
